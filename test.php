@@ -134,20 +134,11 @@
     </li>
     <p class="gugudan">구구단 코드입니다<br>
         <?php
-            
-                for($i=1;$i<10;$i++)
+            for($i=1;$i<10;$i++)
                 {
                     for($j=1;$j<10;$j++)
                     {  
-                        if($i%2==0){
-                            print "<span class='even'>".$i."*".$j."=".$i*$j."</span>";
-                            print ("<br>");
-                        }else{
-                            print "<span class='odd'>".$i."*".$j."=".$i*$j."</span>";
-                            print ("<br>");
-                        }
-                        
-
+                        print gugudan($i,$j);
                     }
                     print("<br>");
                 }
@@ -155,11 +146,23 @@
             //구구단코드입니다.
             //제어문으로는 구구단 배경을 짝수는 파란색 홀수는 빨간색이 되게하는것입니다.
             
+            function gugudan($i,$j){
+                $type;
+                //삼항연산자
+                ($i%2==0) ? $type = 'even' : $type = 'odd';
+                // if부분 ?다음에 나오는건 참 : 뒤에 나오는건 else.    
+                $gugudan = "<span class=".$type.">".$i."*".$j."=".$i*$j."</span> <br>";
+                return $gugudan;
+            }
             
-                
             
         ?>
     </p>
+    <li>5번째 입니다.
+        <? php
+            
+        ?>
+    </li>
 </ul>
 
     <header>a</header>
