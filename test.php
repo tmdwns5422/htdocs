@@ -19,7 +19,9 @@
     <meta charset="UTF-8">
     <title>test.php/index.php가 아닐경우 경로 설정이 달라짐</title>
     <style>
-        .gugudan{background: red; width:150px;}
+        .odd{ color:aquamarine; }
+        .even{ color:hotpink; }
+        .gugudan{background: black; width:150px;}
     </style>
 </head>
 <body>
@@ -137,10 +139,14 @@
                 {
                     for($j=1;$j<10;$j++)
                     {  
-                        if(i%2==0){
-                            print "<span class='red'>$i."*".$j."=".$i*$j</span>";
-                            print("<br>");
+                        if($i%2==0){
+                            print "<span class='even'>".$i."*".$j."=".$i*$j."</span>";
+                            print ("<br>");
+                        }else{
+                            print "<span class='odd'>".$i."*".$j."=".$i*$j."</span>";
+                            print ("<br>");
                         }
+                        
 
                     }
                     print("<br>");
