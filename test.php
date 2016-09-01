@@ -132,7 +132,7 @@
             // 위 코드는 반복문을 활용한 구구단 코드입니다. 
         ?>
     </li>
-    <p class="gugudan">구구단 코드입니다<br>
+    <p class="gugudan">삼황연산자 구구단 코드입니다<br>
         <?php
             for($i=1;$i<10;$i++)
                 {
@@ -142,10 +142,6 @@
                     }
                     print("<br>");
                 }
-            
-            //구구단코드입니다.
-            //제어문으로는 구구단 배경을 짝수는 파란색 홀수는 빨간색이 되게하는것입니다.
-            
             function gugudan($i,$j){
                 $type;
                 //삼항연산자
@@ -154,15 +150,26 @@
                 $gugudan = "<span class=".$type.">".$i."*".$j."=".$i*$j."</span> <br>";
                 return $gugudan;
             }
-            
-            
         ?>
     </p>
-    <li>5번째 입니다.
-        <? php
-            
+    <p class="gugudan">php 구구단 코드입니다
+        <?php
+            print ("<br>");
+            for($a=1;$a<10;$a++)
+                {
+                    for($b=1;$b<10;$b++)
+                    { 
+                        if($a%2==0){
+                            print "<span class='even'>".$a."*".$b."=".$a*$b."</span> <br>";
+                        }else{
+                            print "<span class='odd'>".$a."*".$b."=".$a*$b."</span> <br>";
+                        }
+                        
+                    }
+                    print("<br>");
+                }
         ?>
-    </li>
+    </p>
 </ul>
 
     <header>a</header>
