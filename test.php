@@ -19,9 +19,9 @@
     <meta charset="UTF-8">
     <title>test.php/index.php가 아닐경우 경로 설정이 달라짐</title>
     <style>
+        .gugudan{background: black; width:150px; }
         .odd{ color:aquamarine; }
         .even{ color:hotpink; }
-        .gugudan{background: black; width:150px;}
     </style>
 </head>
 <body>
@@ -134,18 +134,15 @@
     </li>
     <p class="gugudan">삼황연산자 구구단 코드입니다<br>
         <?php
-            for($i=1;$i<10;$i++)
-                {
-                    for($j=1;$j<10;$j++)
-                    {  
+            for($i=1;$i<10;$i++){
+                    for($j=1;$j<10;$j++){  
                         print gugudan($i,$j);
                     }
                     print("<br>");
                 }
             function gugudan($i,$j){
                 $type;
-                //삼항연산자
-                ($i%2==0) ? $type = 'even' : $type = 'odd';
+                ($i%2==0) ? $type = 'even' : $type = 'odd'; //삼항연산자
                 // if부분 ?다음에 나오는건 참 : 뒤에 나오는건 else.    
                 $gugudan = "<span class=".$type.">".$i."*".$j."=".$i*$j."</span> <br>";
                 return $gugudan;
@@ -155,10 +152,8 @@
     <p class="gugudan">php 구구단 코드입니다
         <?php
             print ("<br>");
-            for($a=1;$a<10;$a++)
-                {
-                    for($b=1;$b<10;$b++)
-                    { 
+            for($a=1;$a<10;$a++){
+                    for($b=1;$b<10;$b++){ 
                         if($a%2==0){
                             print "<span class='even'>".$a."*".$b."=".$a*$b."</span> <br>";
                         }else{
@@ -171,9 +166,12 @@
         ?>
     </p>
 </ul>
-
-    <header>a</header>
-    <section>b</section>
-    <footer>c</footer>
+<?php
+    $a = array("월","화","수","목","금","토","일",);
+    foreach($a as $value)
+           // $ㅁ 의 value 값만큼 $value가 증감
+        print $value;
+        print "<br>";
+?>
 </body>
 </html>
