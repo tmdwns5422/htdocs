@@ -132,7 +132,7 @@
             // 위 코드는 반복문을 활용한 구구단 코드입니다. 
         ?>
     </li>
-    <p class="gugudan">삼황연산자 구구단 코드입니다<br>
+    <p class="gugudan">삼황연산자 와 함수사용 구구단 코드입니다<br>
         <?php
             for($i=1;$i<10;$i++){
                     for($j=1;$j<10;$j++){  
@@ -142,9 +142,10 @@
                 }
             function gugudan($i,$j){
                 $type;
+                $test = $i."*".$j."=".$i*$j;
                 ($i%2==0) ? $type = 'even' : $type = 'odd'; //삼항연산자
                 // if부분 ?다음에 나오는건 참 : 뒤에 나오는건 else.    
-                $gugudan = "<span class=".$type.">".$i."*".$j."=".$i*$j."</span> <br>";
+                $gugudan = "<span class=".$type.">".$test."</span> <br>";
                 return $gugudan;
             }
         ?>
@@ -154,10 +155,13 @@
             print ("<br>");
             for($a=1;$a<10;$a++){
                     for($b=1;$b<10;$b++){ 
+                        $sum = $a."*".$b."=".$a*$b;
+                        $sumone = "<span class='even'>".$sum."</span> <br>";
+                        $sumtwo =  "<span class='odd'>".$sum."</span> <br>";
                         if($a%2==0){
-                            print "<span class='even'>".$a."*".$b."=".$a*$b."</span> <br>";
+                            print $sumone;
                         }else{
-                            print "<span class='odd'>".$a."*".$b."=".$a*$b."</span> <br>";
+                            print $sumtwo;
                         }
                         
                     }
@@ -165,16 +169,24 @@
                 }
         ?>
     </p>
-    <li>
-        <?php
+        
+</ul>
+    <?php
             $a = array("월","화","수","목","금","토","일");
-            foreach($a as $value)
+            foreach($a as $value){
                    // $a 의 value 값만큼 $value가 증감
                 print $value;
                 print ("<br>");
-        ?>
-    </li>
-</ul>
+            }
+    ?>
+    <?php
+        require ("main.php");
+        //require_once ("main.php");
+        //include_once ("main.php");
+        //include ("main.php"); // require 랑 같이 불러오는거지만 include 는 오류원인 띄어주고 그냥실행 require는 오류원인안뜨고 오류뜨면 멈춤
+        print "$name 님<br>"; // 쌍따옴표 안에 변수를 쓰면 변수로 인식함
+        print "$message 님<br>"; 
+    ?>
 
 </body>
 </html>
