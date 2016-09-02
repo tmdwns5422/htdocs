@@ -165,13 +165,16 @@
                 }
         ?>
     </p>
+    <li>
+        <?php
+            $a = array("월","화","수","목","금","토","일");
+            foreach($a as $value)
+                   // $a 의 value 값만큼 $value가 증감
+                print $value;
+                print ("<br>");
+        ?>
+    </li>
 </ul>
-<?php
-    $a = array("월","화","수","목","금","토","일",);
-    foreach($a as $value)
-           // $ㅁ 의 value 값만큼 $value가 증감
-        print $value;
-        print "<br>";
-?>
+
 </body>
 </html>
