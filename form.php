@@ -20,7 +20,7 @@ and open the template in the editor.
             직업:<br>
             <input type="text" name="onjob"><br>
             본문:<br>
-            <textarea type="honbun" cols="30" rows="5">
+            <textarea name="honbun" cols="30" rows="5">
             </textarea>
             <br>
             취미:<br>
