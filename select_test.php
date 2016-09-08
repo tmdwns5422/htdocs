@@ -5,7 +5,7 @@
     <title>select_test</title>
 </head>
 <body>
-    <form action="select">
+    <form name="select" action="select_testview.php" method="post">
         <select name="location" id="">
             <option value="" selected>생년월일을 선택해주십시오.</option>
             <?php
