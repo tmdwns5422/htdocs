@@ -8,4 +8,7 @@
     $stmh->execute();  // 실행
     $count = $stmh->rowcount(); // 이름값만큼 카운트 세줌
     print $count."건입니다."; // 출력
+    //과제 - KCC.php 파일에 있는 로그인폼 만큼 여러가지를 추가하여보기 위에것은 이름만 한거
     ?>
+    
+   
