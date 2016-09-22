@@ -31,13 +31,10 @@
     
     
     //pdo로 만들기 [ 이거 사용하면 다른 db로 바꿀떄 코드고칠필요 없음 옵션만 바까주면 됨 ]
-    $pdo= new PDO('mysql:host=localhost;dbname=php;charset=utf-8','root','');
+    $pdo= new PDO('mysql:host=localhost;dbname=php;charset=utf8','root','');
     //$pdo = new PDO('oracle:host=localhost') //옵션명을 오라클로 바꾸면 오라클을 이용한 db가 됨
     print '접속성공';
     $pdo=null;
-    
-    
-    
     ?>
 </body>
 </html>
