@@ -40,4 +40,5 @@
     $sql = "INSERT INTO member (kName,eName,bYear,bMonth,bDay,id,pw,fN,sN,tN,fPn,sPn,tPn,sns,email,fPostN,sPostN,address,IAddress,dm,emp,op,sp,efPostN,esPostN,eAddress,eIaddress,efN,esN,etN,ffN,fsN,ftN,wedding,wYear,wMonth,wDay) VALUES('$kName','$eName','$bYear','$bMonth','$bDay','$id','$pw','$fN','$sN','$tN','$fPn','$sPn','$tPn','$sns','$email','$fPostN','$sPostN','$address','$Iaddress','$dm','$emp','$op','$sp','$efPostN','$esPostN','$eAddress','$eIaddress','$efN','$esN','$etN','$ffN','$fsN','$ftN','$wedding','$wYear','$wMonth','$wDay')";
     //$sql = "INSERT INTO member (kName,eName,bYear) VALUES('$kName','$eName','$bYear')";
     $result = $pdo -> query($sql);
+    echo "<script>location.href='loginview.php';</script>"
 ?>
