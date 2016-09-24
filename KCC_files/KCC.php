@@ -76,7 +76,7 @@
             <div id="put">
              <table class="table">
                     <tbody>
-                    <form action="insert.php" method="post">
+                    <form action="inser1t.php" method="post">
                         <tr>
                             <td>한글이름&nbsp;<span class="star">*</span></td>
                             <td><input type="text" name="kName"></td>
@@ -205,7 +205,7 @@
                         <tr>
                             <td>자택주소&nbsp;<span class="star">*</span></td>
                             <td><input type="text" name="address" style="width:300px;" ></td>
-                            <td><br><input type="text" name="Iaddress" style="width:300px; margin-left:131px;"></td>
+                            <td><br><input type="text" name="IAddress" style="width:300px; margin-left:131px;"></td>
                         </tr>
                         <tr>
                             <td>DM발송처<span class="star">*</span></td>

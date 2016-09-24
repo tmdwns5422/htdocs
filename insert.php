@@ -18,7 +18,7 @@
     $fPostN = $_POST['fPostN'];
     $sPostN = $_POST['sPostN'];
     $address = $_POST['address'];
-    $Iaddress = $_POST['IAddress'];
+    $Iaddress = $_POST['Iaddress'];
     $dm = $_POST['dm'];
     $emp = $_POST['emp'];
     $op = $_POST['op'];
@@ -37,7 +37,7 @@
     $wYear = $_POST['wYear'];
     $wMonth = $_POST['wMonth'];
     $wDay = $_POST['wDay'];
-    $sql = "INSERT INTO member (kName,eName,bYear,bMonth,bDay,id,pw,fN,sN,tN,fPn,sPn,tPn,sns,email,fPostN,sPostN,address,IAddress,dm,emp,op,sp,efPostN,esPostN,eAddress,eIaddress,efN,esN,etN,ffN,fsN,ftN,wedding,wYear,wMonth,wDay) VALUES('$kName','$eName','$bYear','$bMonth','$bDay','$id','$pw','$fN','$sN','$tN','$fPn','$sPn','$tPn','$sns','$email','$fPostN','$sPostN','$address','$IAddress','$dm','$emp','$op','$sp','$efPostN','$esPostN','$eAddress','$eIaddress','$efN','$esN','$etN','$ffN','$fsN','$ftN','$wedding','$wYear','$wMonth','$wDay')";
+    $sql = "INSERT INTO member (kName,eName,bYear,bMonth,bDay,id,pw,fN,sN,tN,fPn,sPn,tPn,sns,email,fPostN,sPostN,address,IAddress,dm,emp,op,sp,efPostN,esPostN,eAddress,eIaddress,efN,esN,etN,ffN,fsN,ftN,wedding,wYear,wMonth,wDay) VALUES('$kName','$eName','$bYear','$bMonth','$bDay','$id','$pw','$fN','$sN','$tN','$fPn','$sPn','$tPn','$sns','$email','$fPostN','$sPostN','$address','$Iaddress','$dm','$emp','$op','$sp','$efPostN','$esPostN','$eAddress','$eIaddress','$efN','$esN','$etN','$ffN','$fsN','$ftN','$wedding','$wYear','$wMonth','$wDay')";
     //$sql = "INSERT INTO member (kName,eName,bYear) VALUES('$kName','$eName','$bYear')";
     $result = $pdo -> query($sql);
 ?>
