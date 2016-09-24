@@ -1,3 +1,6 @@
+<?php
+    include_once('kccdb.php');
+?>
 <!DOCTYPE html>
 <!-- saved from url=(0027)https://shinyuna.github.io/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -73,18 +76,19 @@
             <div id="put">
              <table class="table">
                     <tbody>
-                    <form action="table1.php" method="post">
+                    <form action="insert.php" method="post">
                         <tr>
                             <td>한글이름&nbsp;<span class="star">*</span></td>
-                            <td><input type="text" name="k_name"></td>
+                            <td><input type="text" name="kName"></td>
                         </tr>
                         <tr>
                             <td>영문이름</td>
-                            <td><input type="text" style="margin-left:12px;"></td>
+                            <td><input type="text" name="eName" style="margin-left:12px;"></td>
                         </tr>
                         <tr>
                             <td>생년월일&nbsp;<span class="star">*</span></td>
-                            <td><select name="year" class="year">
+                            <td>
+                            <select name="bYear" class="year">
                                 <option value="1">2000</option>
                                 <option value="2">2001</option>
                                 <option value="3">2002</option>
@@ -102,8 +106,10 @@
                                 <option value="15">2014</option>
                                 <option value="16">2015</option>
                                 <option value="17">2016</option>
-                            </select>&nbsp;년</td>
-                            <td><select name="mot" class="mot">
+                            </select>&nbsp;년
+                            </td>
+                            <td>
+                            <select name="bMonth" class="mot">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -116,45 +122,54 @@
                                 <option value="10">10</option>
                                 <option value="11">11</option>
                                 <option value="12">12</option>
-                            </select>&nbsp;월</td>
-                            <td><select name="day" class="day">
+                            </select>&nbsp;월
+                            </td>
+                            <td>
+                            <select name="bDay" class="day">
                                 <option value="1">11</option>
                                 <option value="2">16</option>
                                 <option value="3">28</option>
-                                </select>&nbsp;일
+                            </select>&nbsp;일
                             </td>
                         </tr>
                         <tr>
-                            <td>아이디&nbsp;<span class="star">*</span></td>
-                            <td><input type="text" style="margin-left:16px;"></td>
+                            <td>아이디&nbsp;
+                                <span class="star">*</span>
+                            </td>
+                            <td>
+                                <input type="text" name="id" style="margin-left:16px;">
+                            </td>
                             <td><input type="button" value="중복확인"></td>
                             <td><span class="ex">사이트내에서 표시되는 본인정보이며 저장 후 수정하실 수 없습니다.</span></td>
                         </tr>
                         <tr>
                             <td>비밀번호&nbsp;<span class="star">*</span></td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="pw"></td>
                             <td><span class="ex">&nbsp; 영문 소문자,숫자 포함 4자리 이상 10자리 이하입니다.</span></td>
                         </tr>
                         <tr>
                             <td>비밀번호 확인&nbsp;<span class="star">*</span></td>
-                            <td><input type="text" style="margin-left:-37px;"></td>
+                            <td>
+                            <input type="text" style="margin-left:-37px;" name="cpw">
+                            </td>
                             <td><span class="ex">&nbsp; 비밀번호를 한번 더 입력하세요</span></td>
                         </tr>
                         <tr>
                             <td id="call">전화번호</td>
-                            <td><select name="phone">
+                            <td>
+                            <select name="fN">
                                 <option value="1">02</option>
                                 <option value="2">031</option>
                                 <option value="3">032</option>
                                 <option value="4">033</option>
                             </select>&nbsp;-</td>
-                            <td><input type="text" style="width:60px;">&nbsp;-</td>
-                            <td><input type="text" style="width:60px;"></td>
+                            <td><input type="text" name="sN" style="width:60px;">&nbsp;-</td>
+                            <td><input type="text" name="tN" style="width:60px;"></td>
                             <td><span class="ex">&nbsp; 예약시 휴대폰으로 문자가 발송됩니다.</span></td>
                         </tr>
                         <tr>
                             <td id="cellphone">휴대폰번호&nbsp;<span class="star">*</span></td>
-                             <td><select name="phone">
+                             <td><select name="fPn">
                                 <option value="1">010</option>
                                 <option value="2">011</option>
                                 <option value="3">016</option>
@@ -162,8 +177,12 @@
                                 <option value="5">018</option>
                                 <option value="6">019</option>
                             </select>&nbsp;-</td>
-                            <td><input type="text" style="width:60px;">&nbsp;-</td>
-                            <td><input type="text" style="width:60px;"></td>
+                            <td>
+                                <input type="text" name="sPn" style="width:60px;">&nbsp;-
+                            </td>
+                            <td>
+                                <input type="text" name="tPn" style="width:60px;">
+                            </td>
                         </tr>
                         <tr>
                             <td id="sms">SMS 수신여부&nbsp;<span class="star">*</span></td>
@@ -173,18 +192,20 @@
                         </tr>
                         <tr>
                         <td>E-MAIL</td>
-                        <td><input type="text" style="margin-left:26px;"></td>
+                        <td>
+                            <input type="text" name="email" style="margin-left:26px;">
+                        </td>
                         </tr>            
                         <tr>
                             <td id="post">자택 우편번호&nbsp;<span class="star">*</span></td>
-                            <td><input type="text" style="width:40px;margin-left:-40px;">&nbsp;-</td>
-                            <td><input type="text" style="width:40px;"></td>
+                            <td><input type="text" name="fPostN" style="width:40px;margin-left:-40px;">&nbsp;-</td>
+                            <td><input type="text" name="sPostN" style="width:40px;"></td>
                             <td><input type="button" value="우편번호 찾기"></td>
                         </tr>
                         <tr>
                             <td>자택주소&nbsp;<span class="star">*</span></td>
-                            <td><input type="text" style="width:300px;"></td>
-                            <td><br><input type="text" style="width:300px; margin-left:131px;"></td>
+                            <td><input type="text" name="address" style="width:300px;" ></td>
+                            <td><br><input type="text" name="Iaddress" style="width:300px; margin-left:131px;"></td>
                         </tr>
                         <tr>
                             <td>DM발송처<span class="star">*</span></td>
@@ -193,7 +214,6 @@
                             <td><input type="radio"></td>
                             <td><span class="ex">직장</span></td>
                         </tr>
-                    </form>
                 </tbody>
                 </table>
                 </div>
@@ -201,7 +221,6 @@
                 <div id="put2">
                     <table class="table2">
                         <tbody>
-                        <form action="table2.php" method="post">
                             <tr>
                                 <td>직장명&nbsp;<span class="star">*</span></td>
                                 <td><input type="text" style="margin-left:14px;"></td>
@@ -300,16 +319,17 @@
                                 </select>&nbsp;일
                             </td>
                             </tr>
-                        </form>
+                        
                     </tbody>
                     </table>
                 </div>
                 <div id="line3"></div>
                 <div id="btn">
                    <a href="https://shinyuna.github.io/#" id="back">취소</a>
-                   <a href="https://shinyuna.github.io/#" id="next">다음</a>
                 </div>
-            </div>
+                </div>
+                   <button>다음</button>
+                </form>
         </div>
         <div id="footer">
             <div class="footer_line"></div>
