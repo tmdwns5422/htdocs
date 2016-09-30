@@ -4,7 +4,7 @@
     $result = $pdo -> query($sql);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
@@ -25,22 +25,18 @@
             echo "<span class='under'></span>";
             echo "영문이름: ".$row['eName'];
             echo "<br\n>";
-        echo "<span class='under'></span>";
+            echo "<span class='under'></span>";
             echo "생년월일: ".$row['bYear']." 년 ";
-            echo " ".$row['bMonth']." 달 ";  
+            echo " ".$row['bMonth']." 달 ";
             echo " ".$row['bDay']." 일 ";
             echo "<br\n>";echo "<span class='under'></span>";
             echo "아이디: ".$row['id'];
             echo "<br\n>";echo "<span class='under'></span>"; 
             echo "비밀번호: ".$row['pw'];
             echo "<br\n>";echo "<span class='under'></span>";  
-            echo "집전화번호: ".$row['fN'];  
-            echo " ".$row['sN'];  
-            echo " ".$row['tN'];
+            echo "집전화번호: ".$row['fN'];
             echo "<br\n>";echo "<span class='under'></span>";  
-            echo "휴대폰번호: ".$row['fPn'];  
-            echo " - ".$row['sPn'];
-            echo " - ".$row['tPn'];
+            echo "휴대폰번호: ".preg_replace("/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/",$homeNumber);
             echo "<br\n>";echo "<span class='under'></span>";
             echo "sns 수신여부: ".$row['sns'];
             echo "<br\n>";echo "<span class='under'></span>";  

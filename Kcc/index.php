@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 <!-- saved from url=(0027)https://shinyuna.github.io/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="ko">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="./css/kcc.css">
-    
     <title>KCC</title>
 </head>
 <body>
@@ -88,8 +89,9 @@
                             <td>
                             <select name="bYear" class="year">
                                <?php
-                                    for($i = 1964 ;$i<2017; $i++){
-                                        echo "<option value='1'>".$i."</option>";
+                                    for($i = 1964 ;$i<2017; $i++)
+                                    {
+                                        echo "<option value=".$i.">".$i."</option>";
                                     }
                                 ?>
                             </select>&nbsp;년
@@ -97,8 +99,9 @@
                             <td>
                             <select name="bMonth" class="mot">
                                  <?php
-                                    for($i = 1 ;$i<13; $i++){
-                                        echo "<option value='1'>".$i."</option>";
+                                    for($i = 1 ;$i<13; $i++)
+                                    {
+                                        echo "<option value=".$i.">".$i."</option>";
                                     }
                                 ?>
                             </select>&nbsp;월
@@ -106,8 +109,9 @@
                             <td>
                             <select name="bDay" class="day">
                                 <?php
-                                    for($i = 1 ;$i<31; $i++){
-                                        echo "<option value='1'>".$i."</option>";
+                                    for($i = 1 ;$i<31; $i++)
+                                    {
+                                        echo "<option value=".$i.">".$i."</option>";
                                     }
                                 ?>
                             </select>&nbsp;일
@@ -159,10 +163,10 @@
                                 <option value="6">019</option>
                             </select>&nbsp;-</td>
                             <td>
-                                <input type="text" name="sPn" style="width:60px;">&nbsp;-
+                                <input type="text" name="sPn" style="width:60px;" maxlength="4">&nbsp;-
                             </td>
                             <td>
-                                <input type="text" name="tPn" style="width:60px;">
+                                <input type="text" name="tPn" style="width:60px;" maxlength="4">
                             </td>
                         </tr>
                         <tr>
@@ -262,24 +266,26 @@
                                 <td id="mdate">결혼기념일</td>
                             <td><select name="wYear" class="year">
                                <?php
-                                for($i = 1964 ;$i<2017; $i++){
-                                        echo "<option value='1'>".$i."</option>";
-                                    }
-                                }?>
+                                for($i = 1964 ;$i<2017; $i++)
+                                {
+                                        echo "<option value=".$i.">".$i."</option>";
+                                }
+                                ?>
                             </select>&nbsp;년</td>
                             <td><select name="wMonth" class="mot">
                                 <?php
-                                for($i = 1 ;$i<13; $i++){
-                                        echo "<option value='1'>".$i."</option>";
-                                    }
+                                for($i = 1 ;$i<13; $i++)
+                                {
+                                        echo "<option value=".$i.">".$i."</option>";
                                 }?>
                             </select>&nbsp;월</td>
                             <td><select name="wDay" class="day">
                                 <?php
-                                 for($i = 1 ;$i<31; $i++){
-                                        echo "<option value='1'>".$i."</option>";
-                                    }
-                                }?>
+                                 for($i = 1 ;$i<31; $i++)
+                                 {
+                                        echo "<option value=".$i.">".$i."</option>";
+                                 }
+                                ?>
                                 </select>&nbsp;일
                             </td>
                             </tr>
