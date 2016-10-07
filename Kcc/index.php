@@ -126,7 +126,7 @@
                             <td>
                                 <input id="uid" type="text" name="id" style="margin-left:16px;" placeholder="아이디를 입력해주십시오">
                             </td>
-                            <td><input type="button" value="중복확인"></td>
+                            <td><input type="button" value="중복확인" id="checking"></td>
                             <td><span class="ex">아이디는 4자 이상 16자 미만입니다.</span></td>
                         </tr>
                         <tr>
@@ -137,7 +137,7 @@
                         <tr>
                             <td>비밀번호 확인&nbsp;<span class="star">*</span></td>
                             <td>
-                            <input type="text" style="margin-left:-37px;" name="cpw" placeholder="다시한번 입력해주십시오">
+                            <input id="testpw" type="text" style="margin-left:-37px;" name="cpw" placeholder="다시한번 입력해주십시오">
                             </td>
                             <td><span class="ex">&nbsp; 비밀번호를 한번 더 입력하세요</span></td>
                         </tr>
@@ -314,7 +314,35 @@
 
 </body>
 <script>
-    //아이디 , 비밀번호 , 이메일 [ 정규식을 이용한 제한걸기 ]
+    
+    //아이디 중복체크 확인
+    $(function(){
+       $('#uid').blur(function(){
+           $ajax({
+              url:"./Kcc/lib/idcheck.jsp", // 아이디 중복체크할 페이지 지정
+              data :({
+              userid:$("input[name=id]").val() // userid 이름으로 값은 사용자가 입력한 val() 값으로
+            }),
+                success:function(data){  // 중복확인한 값을 매개변수 data에 저장
+                    if(jQuery.trim(data)=='yes'){
+                        alert("사용가능한 아이디입니다.");
+                        $('input[name=pw]').focus(); // 중복확인이 성공한다면 비밀번호 인풋태그로 자동 선택됨.
+                    }else{
+                        alert("이미 사용중인 아이디입니다.");
+                        $('input[name=id]').focus(); // 중복확인 실패시, 다시 수정하도록 아이디 인풋태그로 포커스됨.
+                    }
+                }
+           }),
+       }) ;
+    });
+    
+    
+    
+    //아이디 , 비밀번호 , 이메일 [ 정규식을 이용한 제한걸기 ] + 비밀번호 확인하기
+    
+    
+    
+    
     jQuery(function($){ // html 문서를 모두 읽으면 코드 실행
         
 	   // 정규식을 변수에 할당
@@ -324,8 +352,8 @@
 	   // 변수 이름을 're_'로 정한것은 'Reguar Expression'의 머릿글자
         
         
-       var re_id = /^[a-z0-9_-]{3,16}$/; // 아이디 검사식
-	   var re_pw = /^[a-z0-9_-]{6,18}$/; // 비밀번호 검사식
+       var re_id = /^[a-z0-9_-]{4,16}$/; // 아이디 검사식 4~16자
+	   var re_pw = /^[a-z0-9_-]{4,16}$/; // 비밀번호 검사식 4~16자
 	   var re_mail = /^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{2,6})$/; // 이메일 검사식
 	   var re_url = /^(https?:\/\/)?([a-z\d\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?$/; // URL 검사식
 	   var re_tel = /^[0-9]{8,11}$/; // 전화번호 검사식
@@ -362,6 +390,10 @@
             }else if(re_mail.test(mail.val()) != true){          //이메일검사
                 alert("[Email 입력 오류] 유효한 이메일 아이디를 입력해 주세요.");
                 mail.focus();
+                return false;
+            }else if(testpw.val() != upw.val()){                //비밀번호 확인 검사
+                alert('[비밀번호 오류]비밀번호 오류입니다 비밀번호를 같게 작성해 주세요.');
+                testpw.focus();
                 return false;
             }
             
@@ -424,6 +456,12 @@
             
         });
     });
+    
+    
+    
+    //우편번호창 api 소스
+    
+    
     
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
     function postCode() {
