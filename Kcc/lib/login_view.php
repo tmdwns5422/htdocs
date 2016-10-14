@@ -1,7 +1,9 @@
 <?php
     include 'kccdb.php';
     $sql = "select * from member order by idx desc";
-    $result = $pdo -> query($sql);
+    $stmh = $pdo -> prepare($sql);
+    $stmh->execute();
+    $result = $stmh->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -9,72 +11,71 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        .item{margin-left: 15px; background-color: #e2e2e2; color:#999; width: 300px; display: inline-block;}
-        .item:nth-child(1){margin-left: 0; }
-        .under{width: 300px; height:2px; background-color: #000; display: block;}
+        table{width: 2500px; border: 1px solid black; border-spacing:0;}
+        tr{width: 2500px; height:30px;  text-align: center; border: 1px solid black;}
+        th{width: 300px; height:30px; text-align: center; border: 1px solid black; background-color:cadetblue;}
+        td{width: 300px; height: 30px; text-align: center; border: 1px solid black;}
     </style>
 </head>
 <body>
+   <table>
+       <tr>
+           <th>번호</th>
+           <th>한글이름</th>
+           <th>영어이름</th>
+           <th>생년월일</th>
+           <th>아이디</th>
+           <th>비밀번호</th>
+           <th>집전화번호</th>
+           <th>휴대폰번호</th>
+           <th>수신여부</th>
+           <th>이메일</th>
+           <th>우편번호</th>
+           <th>자택주소</th>
+           <th>세부주소</th>
+           <th>dm발송처</th>
+           <th>직장명</th>
+           <th>직종</th>
+           <th>직위</th>
+           <th>직장 우편번호</th>
+           <th>직장주소</th>
+           <th>직장세부주소</th>
+           <th>직장전화번호</th>
+           <th>팩스번호</th>
+           <th>결혼여부</th>
+           <th>결혼기념일</th>
+       </tr>
     <?php
-        while($row = $result -> fetch()){    
+        foreach($result as $row){    
     ?>    
-        <div class="item">
-            <?php 
-            echo "한글이름: ".$row['kName'];
-            echo "<br\n>";
-            echo "<span class='under'></span>";
-            echo "영문이름: ".$row['eName'];
-            echo "<br\n>";
-            echo "<span class='under'></span>";
-            echo "생년월일: ".$row['bYear']." 년 ";
-            echo " ".$row['bMonth']." 달 ";
-            echo " ".$row['bDay']." 일 ";
-            echo "<br>"."<span class='under'></span>";
-            echo "아이디: ".$row['id'];
-            echo "<br>"."<span class='under'></span>"; 
-            echo "비밀번호: ".$row['pw'];
-            echo "<br>"."<span class='under'></span>";  
-            echo "집전화번호: ".$row['fN'];
-            echo "<br>"."<span class='under'></span>";  
-            echo "휴대폰번호: ".$row['fPn'];
-            echo "<br>"."<span class='under'></span>";
-            echo "sns 수신여부: ".$row['sns'];
-            echo "<br>"."<span class='under'></span>";  
-            echo "이메일: ".$row['email'];
-            echo "<br>"."<span class='under'></span>";
-            echo "우편번호: ".$row['fPostN'];
-            echo "<br>"."<span class='under'></span>";
-            echo "자택주소: ".$row['address'];
-            echo "<br>"."<span class='under'></span>";
-            echo "세부주소: ".$row['Iaddress'];
-            echo "<br>"."<span class='under'></span>";
-            echo "DM발송처 여부: ".$row['dm'];
-            echo "<br>"."<span class='under'></span>";
-            echo "직장명: ".$row['emp'];
-            echo "<br>"."<span class='under'></span>";
-            echo "직종: ".$row['op'];
-            echo "<br>"."<span class='under'></span>";
-            echo "직위: ".$row['sp'];
-            echo "<br>"."<span class='under'></span>";
-            echo "직장 우편번호: ".$row['efPostN'];
-            echo "<br>"."<span class='under'></span>";  
-            echo "직장주소: ".$row['eAddress'];
-            echo "<br>"."<span class='under'></span>";
-            echo "직장세부주소: ".$row['eIaddress'];
-            echo "<br>"."<span class='under'></span>";
-            echo "직장전화번호: ".$row['efN'];
-            echo "<br>"."<span class='under'></span>";
-            echo "팩스번호: ".$row['ffN'];
-            echo "<br>"."<span class='under'></span>";
-            echo "결혼여부: ".$row['wedding'];
-            echo "<br>";
-            echo "<span class='under'></span>";
-            echo "결혼기념일: ".$row['wYear']." 년 ";
-            echo " ".$row['wMonth']." 달 ";
-            echo " ".$row['wDay']." 일 ";
-            echo "<span class='under'></span>";
-            ?>
-            </div>
-    <?php } ?>
+        <tr>
+            <td><?=$row['idx']?></td>
+            <td><?=$row['kName']?></td>
+            <td><?=$row['eName']?></td>
+            <td><?=$row['bYear'].$row['bMonth'].$row['bDay']?></td>
+            <td><?=$row['id']?></td>
+            <td><?=$row['pw']?></td>
+            <td><?=$row['fN']?></td>
+            <td><?=$row['fPn']?></td>
+            <td><?=$row['sns']?></td>
+            <td><?=$row['email']?></td>
+            <td><?=$row['fPostN']?></td>
+            <td><?=$row['address']?></td>
+            <td><?=$row['dm']?></td>
+            <td><?=$row['emp']?></td>
+            <td><?=$row['op']?></td>
+            <td><?=$row['sp']?></td>
+            <td><?=$row['efPostN']?></td>
+            <td><?=$row['eAddress']?></td>
+            <td><?=$row['eIaddress']?></td>
+            <td><?=$row['efN']?></td>
+            <td><?=$row['ffN']?></td>
+            <td><?=$row['wedding']?></td>
+            <td><?=$row['wYear'].$row['wMonth'].$row['wDay']?></td>
+        </tr>
+        <?php
+        } 
+        ?>
+    </table>
 </body>
 </html>
