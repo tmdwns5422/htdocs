@@ -15,15 +15,22 @@
         tr{width: 2500px; height:30px;  text-align: center; border: 1px solid black;}
         th{width: 300px; height:30px; text-align: center; border: 1px solid black; background-color:cadetblue;}
         td{width: 300px; height: 30px; text-align: center; border: 1px solid black;}
+        button{width: 200px; height: 50px; background:cadetblue;}
+        button:hover{opacity: 0.5; transition: 1s}
     </style>
 </head>
 <body>
+  
    <table>
+      <form action="delete.php" method="post">
        <tr>
+           <th>선택</th>
            <th>번호</th>
            <th>한글이름</th>
            <th>영어이름</th>
-           <th>생년월일</th>
+           <th>생년</th>
+           <th>월</th>
+           <th>일</th>
            <th>아이디</th>
            <th>비밀번호</th>
            <th>집전화번호</th>
@@ -49,33 +56,40 @@
         foreach($result as $row){    
     ?>    
         <tr>
-            <td><?=$row['idx']?></td>
-            <td><?=$row['kName']?></td>
-            <td><?=$row['eName']?></td>
-            <td><?=$row['bYear'].$row['bMonth'].$row['bDay']?></td>
-            <td><?=$row['id']?></td>
-            <td><?=$row['pw']?></td>
-            <td><?=$row['fN']?></td>
-            <td><?=$row['fPn']?></td>
-            <td><?=$row['sns']?></td>
-            <td><?=$row['email']?></td>
-            <td><?=$row['fPostN']?></td>
-            <td><?=$row['address']?></td>
-            <td><?=$row['dm']?></td>
-            <td><?=$row['emp']?></td>
-            <td><?=$row['op']?></td>
-            <td><?=$row['sp']?></td>
-            <td><?=$row['efPostN']?></td>
-            <td><?=$row['eAddress']?></td>
-            <td><?=$row['eIaddress']?></td>
-            <td><?=$row['efN']?></td>
-            <td><?=$row['ffN']?></td>
-            <td><?=$row['wedding']?></td>
-            <td><?=$row['wYear'].$row['wMonth'].$row['wDay']?></td>
+                <td><input type="checkbox" value="<?=$row['idx']?>" name="idx[]"></td> <!-- name에 idx[] 하면 값들이 array 형식으로 들어간다 -->
+                <td><?=$row['idx']?></td>
+                <td><?=$row['kName']?></td>
+                <td><?=$row['eName']?></td>
+                <td><?=$row['bYear']?></td>
+                <td><?=$row['bMonth']?></td>
+                <td><?=$row['bDay']?></td>
+                <td><?=$row['id']?></td>
+                <td><?=$row['pw']?></td>
+                <td><?=$row['fN']?></td>
+                <td><?=$row['fPn']?></td>
+                <td><?=$row['sns']?></td>
+                <td><?=$row['email']?></td>
+                <td><?=$row['fPostN']?></td>
+                <td><?=$row['address']?></td>
+                <td><?=$row['Iaddress']?></td>
+                <td><?=$row['dm']?></td>
+                <td><?=$row['emp']?></td>
+                <td><?=$row['op']?></td>
+                <td><?=$row['sp']?></td>
+                <td><?=$row['efPostN']?></td>
+                <td><?=$row['eAddress']?></td>
+                <td><?=$row['eIaddress']?></td>
+                <td><?=$row['efN']?></td>
+                <td><?=$row['ffN']?></td>
+                <td><?=$row['wedding']?></td>
+                <td><?=$row['wYear']."-".$row['wMonth']."-".$row['wDay']?></td>
+                
         </tr>
         <?php
         } 
         ?>
-    </table>
+            <button tpye="submit">삭제하기</button>
+        </form>
+    </table>  
 </body>
 </html>

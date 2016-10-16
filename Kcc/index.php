@@ -1,4 +1,6 @@
-
+<?php
+    
+?>
 <!DOCTYPE html>
 <!-- saved from url=(0027)https://shinyuna.github.io/ -->
 <html lang="ko">
@@ -126,7 +128,7 @@
                             <td>
                                 <input id="uid" type="text" name="id" style="margin-left:16px;" placeholder="아이디를 입력해주십시오">
                             </td>
-                            <td><input type="button" value="중복확인" id="checking"></td>
+                            <td><input type="hidden" name="isexist" value="y"><input type="button" value="중복확인" id="checking" onclick="Checked_id()"></td>
                             <td><span class="ex">아이디는 4자 이상 16자 미만입니다.</span></td>
                         </tr>
                         <tr>
@@ -314,27 +316,28 @@
 
 </body>
 <script>
-    
-    //아이디 중복체크 확인
-    $(function(){
-       $('#uid').blur(function(){
-           $ajax({
-              url:"./Kcc/lib/idcheck.jsp", // 아이디 중복체크할 페이지 지정
-              data :({
-              userid:$("input[name=id]").val() // userid 이름으로 값은 사용자가 입력한 val() 값으로
-            }),
-                success:function(data){  // 중복확인한 값을 매개변수 data에 저장
-                    if(jQuery.trim(data)=='yes'){
-                        alert("사용가능한 아이디입니다.");
-                        $('input[name=pw]').focus(); // 중복확인이 성공한다면 비밀번호 인풋태그로 자동 선택됨.
-                    }else{
-                        alert("이미 사용중인 아이디입니다.");
-                        $('input[name=id]').focus(); // 중복확인 실패시, 다시 수정하도록 아이디 인풋태그로 포커스됨.
+    var dupBool = false;
+    function Checked_id(){
+        if($('#uid').val()==""){
+            alert("아이디를 입력하시오.");
+            $('#uid').focus();
+        }else{
+            $.ajax({
+                url:'./lib/idCheck.php',
+                type:'POST',
+                data:{'id':$('#uid').val()},
+                dataType:'html',
+                success:function(data){
+                    alert(data);
+                    if(data == "사용가능한 아이디입니다."){
+                        dupBool = true;
+                    }else if(data == "이미 존재하는 아이디입니다."){
+                        dupBool = false;
                     }
                 }
-           }),
-       }) ;
-    });
+            });
+        }
+    }
     
     
     
@@ -370,6 +373,7 @@
         mail = $('#mail');
         
         
+        
      	// 선택한 form에 서밋 이벤트가 발생하면 실행한다
         // if (사용자 입력 값이 정규식 검사에 의해 참이 아니면) {포함한 코드를 실행}
         // if 조건절 안의 '정규식.test(검사할값)' 형식은 true 또는 false를 반환한다
@@ -379,9 +383,13 @@
         // 사용자 입력 값이 참이 아니면 form 서밋을 중단한다   
         
         form.submit(function(){
+            
             if(re_id.test(uid.val()) != true){                  //아이디검사
                 alert("[ID 입력 오류] 유효한 아이디를 입력해 주세요.");
                 uid.focus();            // 수정하고 있는 [ 마우스 커서로 클릭한 상태의 ] 인풋태크에 넣어줌
+                return false;
+            }else if(dupBool == false){     //아이디 체크 진행안하면 입력안되게하기-중복체크하면 dupbool 값이 true로
+                alert("id체크를 진행해 주세요.");
                 return false;
             }else if(re_pw.test(upw.val()) != true){            //비번검사
                 alert("[PW 입력 오류] 유효한 비밀번호를 입력해 주세요.");
@@ -396,6 +404,8 @@
                 testpw.focus();
                 return false;
             }
+            
+            
             
         // #uid, #upw 인풋에 입력된 값의 길이가 적당한지 알려주려고 한다
         // #uid, #upw 다음 순서에 경고 텍스트 출력을 위한 빈 strong 요소를 추가한다
