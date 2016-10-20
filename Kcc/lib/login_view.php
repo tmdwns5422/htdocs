@@ -15,8 +15,8 @@
         tr{width: 2500px; height:30px;  text-align: center; border: 1px solid black;}
         th{width: 300px; height:30px; text-align: center; border: 1px solid black; background-color:cadetblue;}
         td{width: 300px; height: 30px; text-align: center; border: 1px solid black;}
-        button{width: 200px; height: 50px; background:cadetblue;}
-        button:hover{opacity: 0.5; transition: 1s}
+        .button{width: 200px; height: 50px; background:cadetblue;}
+        button:hover{opacity: 0.7; transition: 1s}
     </style>
 </head>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -51,6 +51,7 @@
            <th>팩스번호</th>
            <th>결혼여부</th>
            <th>결혼기념일</th>
+           <th>수정</th>
        </tr>
     <?php
         foreach($result as $row){    
@@ -83,12 +84,13 @@
                 <td><?=$row['ffN']?></td>
                 <td><?=$row['wedding']?></td>
                 <td><?=$row['wYear']."-".$row['wMonth']."-".$row['wDay']?></td>
+                <td><a href="updata.php" class="button">수정</a></td>
                 
         </tr>
         <?php
         } 
         ?>
-            <button tpye="submit">삭제하기</button>
+            <button tpye="submit" class="button">삭제하기</button>
         </form>
     </table>  
 </body>
