@@ -19,12 +19,12 @@
         button:hover{opacity: 0.5; transition: 1s}
     </style>
 </head>
-<body>
-  
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<body> 
    <table>
       <form action="delete.php" method="post">
        <tr>
-           <th>선택</th>
+           <th>전체선택<input class="chAll" type="checkbox" name="checkboxAll"></th>
            <th>번호</th>
            <th>한글이름</th>
            <th>영어이름</th>
@@ -56,7 +56,7 @@
         foreach($result as $row){    
     ?>    
         <tr>
-                <td><input type="checkbox" value="<?=$row['idx']?>" name="idx[]"></td> <!-- name에 idx[] 하면 값들이 array 형식으로 들어간다 -->
+                <td><input class="chcall" type="checkbox" value="<?=$row['idx']?>" name="idx[]"></td> <!-- name에 idx[] 하면 값들이 array 형식으로 들어간다 -->
                 <td><?=$row['idx']?></td>
                 <td><?=$row['kName']?></td>
                 <td><?=$row['eName']?></td>
@@ -92,4 +92,26 @@
         </form>
     </table>  
 </body>
+<script>
+    
+    //전체선택 첫번째방법 [ prop , attr , 그냥 ]
+    $('.chAll').click(function(){
+        if(this.checked){
+            $('.chcall').each(function(){
+                //this.checked = true;
+                //$(this).prop('checked',true);
+                $(this).attr('checked',true);
+            });
+        }else{
+            $('.chcall').each(function(){
+                //this.checked = false;
+                //$(this).prop('checked',true);
+                $(this).attr('checked',false);
+            });
+        }
+    });
+    
+    //전체선택 두번째방법 [ is ] - 과제 
+        
+</script>
 </html>
