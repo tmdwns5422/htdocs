@@ -10,4 +10,3 @@ var app ={
  },
 }
 app.init();
-

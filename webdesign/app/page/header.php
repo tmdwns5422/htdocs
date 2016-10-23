@@ -11,15 +11,15 @@
     <div id="wrap">
        <div id="row">
             <header>
+                <h1><a href="/webdesign/index.php"><img src="/webdesign/img/logo.jpg" alt="logo" class="logo"></a></h1>
                <div class="container">
-                    <a href="#" id="logo"></a>
                     <nav>
-                        <a href="#">SchoolAbout</a>
-                        <a href="#">Department</a>
-                        <a href="#">CircleAbout</a>
-                        <a href="#">Notice</a>
-                        <a href="#">Contact</a>
-                        <a href="#" class="btn">START A PROJECT</a>
+                        <a href="Circle.php">Circle About</a>
+                        <a href="School.php">School About</a>
+                        <a href="Department.php">Department</a>
+                        <a href="Notice.php">Notice</a>
+                        <a href="Contact.php">Contact</a>
+                        <a href="SignUp.php" class="btn">SIGN IN</a>
                     </nav>
                 </div>
             </header>

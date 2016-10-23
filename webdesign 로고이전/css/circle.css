@@ -1,0 +1,23 @@
+/*set*/
+header nav a:nth-child(1){color:#f16162;}
+p{margin:0 0 20px;}
+section{display: block;}
+
+
+/*content*/
+#content{padding-top: 40px; text-align: center; width: 100%;}
+/*section - circle*/
+.intro{width: 1000px; height: 300px; margin:0 auto;}
+.intro h1{width: 1000px; height: 100px; font-size:60px; line-height: 53px; color:#333;}
+.intro p{max-width: 1000px; height:50px; line-height: 50px;margin-top:10px; padding-top: 50px; font-size: 15px; font-weight: 300; font-style: italic;}
+
+
+/*circle*/
+.circle{text-align: center; max-width: 1160px; padding:0 20px; margin:0 auto 80px;}
+.circle h3{font-size: 28px; line-height: 45.36px; margin-bottom:30px; font-family: 'Tungsten A', 'Tungsten B'; font-weight: bold;}
+.circle > a{width: 340px; display:inline-block; background: #f9f9f9; margin:15px; text-align: left; color:#3a4046; max-height: 405px;}
+.circle > a:hover{opacity:0.5; transition: 0.3s;}
+.circle > a img{width: 340px; height: 230px; }
+.circle > a div{padding: 10px 20px;}
+.circle > a div h2{font-size:22px; line-height: 28px; padding: 15px 0; font-family: 'Tungsten A', 'Tungsten B'; font-style: normal; font-weight: 400;}
+.circle > a div p{font-size:14px; margin:0 0 20px;}

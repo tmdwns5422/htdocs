@@ -1,0 +1,43 @@
+header nav a:nth-child(3){color:#f16162;}
+/*content*/
+#content{padding-top: 40px; text-align: center;}
+/*section - intro*/
+.intro{width: 1000px; height: 200px; margin:0 auto;}
+.intro h1{width: 1000px; height: 100px; font-size:60px; line-height: 53px; color:#333;}
+.intro .department{width: 100%; height: 81px; padding: 18px 0px; margin-left:-8%;}
+.intro .department li{display:inline-block; padding: 10px 2%; margin-left:12%; font-size:15px; line-height: 20.06px; font-weight: bold;}
+.intro .department li > a, a:visited{color:#333; text-decoration: none;}
+.intro .department li > a:hover{color:#3597eb; transition: 0.8s;}
+.intro p{font-size:24px; padding:10px;}
+
+/*section face*/
+.face{width: 100%; height:960px; margin-top:80px;}
+.face ul li{width: calc(100%/3); height:480px; float:left; }
+.face ul li:nth-child(1){background:url('../img/Ubiquitous_menu.jpg')no-repeat; background-size:cover}
+.face ul li img:hover:nth-child(1){opacity: 0.5s}
+.face ul li:nth-child(2){background:url('../img/Spatial%20Information.jpg')no-repeat; background-size:cover}
+.face ul li:nth-child(2):hover{opacity: 0.5s}
+.face ul li:nth-child(3){background:url('../img/gamemenu.jpg')no-repeat; background-size:cover}
+.face ul li:nth-child(3):hover{opacity: 0.5s}
+.hover{width: 100%; height: 480px; position: absolute; left:0; top:0; opacity: 0; transition: opacity .4s; color:#fff; font-weight: bold;}
+.hover p{font-size:14px;}
+.a{background-color:rgba(48,48,48,0.8);}
+.b{background-color:rgba(17,160,168,0.8);}
+.c{background-color:rgba(238,59,51,0.8);}
+.d{background-color:rgba(103,70,133,0.5);}
+.e{background-color:rgba(245,122,31,0.5);}
+.f{background-color:rgba(75,160,0,0.5);}
+.face ul li:hover .hover{opacity:1;}
+
+.face ul li:nth-child(4){background:url('../img/game.jpg')no-repeat; background-size:cover}
+.face ul li:nth-child(5){background:url('../img/ub.png')no-repeat; background-size:cover}
+.face ul li:nth-child(6){background:url('../img/sp.png')no-repeat; background-size:cover; background-position: bottom;}
+
+
+
+/*section text*/
+#text{width: 100%; height:250px;  background: #e8e8e8; margin-top:-20px; }
+#text h1{color:#333; font-size: 26px; font-weight: bold; line-height: 140px; }
+#text h2{color:#333; font-size: 20px;  line-height: 0px;  }
+#text h2 a{color:#f16162;}
+#text h2 a:hover{color:#3597eb; text-decoration: none;}

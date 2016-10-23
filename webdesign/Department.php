@@ -59,10 +59,8 @@
                 </ul>
             </section>
             <section id="text">
-               <div>
                     <h1>The biggest adventure you can ever take is to live the life of your dreams&#46;</h1>
                     <h2><a href="#">- Oprah Winfrey</a></h2>
-                </div>
             </section>
         </div>
     </div>

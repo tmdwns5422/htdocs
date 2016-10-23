@@ -5,13 +5,16 @@ body, html{font-size: 12px; width: 100%;}
 ul li{list-style: none;}
 a, a:hover, a:visited{text-decoration: none; color:#889fae;}
 .container{width: 1200px;}
-.active{color:#f16162;}
+.active{color:#f16162; border-top:5px solid #f16162;}
 /*header*/
 header{width:100%; height:136px; line-height: 136px; }
-header nav{width:60%; float:right; margin-top:2%; margin-right:-10%; }
-header nav a{padding: 7px 25px; transition: color .8s; font-size:1em;}
+header h1{width: 200px; height: 41px; position: absolute; margin-top:3%; margin-left:15%;}
+header h1 > .logo{width: 200px; height:41px;  background: #999; }
+header nav{width:60%; float:right; margin-top:2%;  margin-right:-20%; }
+header nav span{height:100px;}
+header nav a{padding: 7px 25px; transition: color .8s; font-size:1em; font-size: 13px;}
 header nav .btn{font-size:1em; border:2px solid #889fae; transition: background-color .8s;}
-header nav .btn:hover{background-color: #f16162; color:#fff; border:0; width: 135.91px; height: 33px; line-height: 21.5px;}
+header nav .btn:hover{background-color: #f16162; color:#fff; border:0; width: 71.91px; height: 33px; line-height: 21.5px;}
 header nav a:hover{color:#f16162;}
 
 /*context*/
@@ -27,5 +30,5 @@ header nav a:hover{color:#f16162;}
 
 
 /*footer*/
-footer{width: 100%; background-color: #54595b; height: 100px; line-height: 100px;}
+footer{width: 100%; background-color: #1e1f20; height: 100px; line-height: 100px;}
 footer p {color:#fff; display: block; text-align: center; margin:0 auto;}
